@@ -1,0 +1,34 @@
+<h1>Listing Movies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.name %></td>
+        <td>
+          <% movie.tags.each do |tag| %>
+            <%= tag.name %>
+            <%= link_to "X", delete_tag_movie_path(movie, tag), method: :delete %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', movie if can? :read, Movie %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie) if can? :update, movie %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Movie %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if can? :create, Movie %>
+  <%= link_to 'New Movie', new_movie_path %>
+<% end %>

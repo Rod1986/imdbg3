@@ -1,0 +1,14 @@
+<p>
+  <strong>Name:</strong>
+</p>
+<% if @movie.tags.any? %>
+<p><strong>Tags:</strong></p>
+<p>
+	<% @movie.tags.each do |tag| %>
+		<%= tag.name %>
+		<%= link_to "X", delete_tag_movie_path(@movie, tag), method: :delete %>
+	<% end %>
+</p>
+<% end %>
+<%= link_to 'Edit', edit_movie_path(@movie)  if can? :update, @movie%> |
+<%= link_to 'Back', movies_path %>

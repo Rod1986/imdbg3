@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   before_save :default_role
+  after_create :send_welcome_email
 
   has_many :movies
 
@@ -22,5 +23,10 @@ class User < ActiveRecord::Base
 
     def default_role
       self.role ||= 2
+    end
+
+
+    def send_welcome_email
+      UserMailer.welcome_email(self).deliver_later
     end
 end

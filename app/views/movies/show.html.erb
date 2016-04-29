@@ -1,5 +1,6 @@
 <p>
-  <strong>Name:</strong>
+  <strong>Name: </strong>
+  <%= @movie.name %>
 </p>
 <% if @movie.tags.any? %>
 <p><strong>Tags:</strong></p>
@@ -9,6 +10,8 @@
 		<%= link_to "X", delete_tag_movie_path(@movie, tag), method: :delete %>
 	<% end %>
 </p>
+
+<%= image_tag @movie.photo.url %>
 <% end %>
 <%= link_to 'Edit', edit_movie_path(@movie)  if can? :update, @movie%> |
 <%= link_to 'Back', movies_path %>

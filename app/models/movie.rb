@@ -1,6 +1,9 @@
 class Movie < ActiveRecord::Base
 
+  mount_uploader :photo, PhotoUploader
+
   validate :max_tags
+  validates :name, presence: true
 
   has_many :movie_tags
   has_many :tags, through: :movie_tags

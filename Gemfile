@@ -9,6 +9,14 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'cancancan'
 
+gem 'activeadmin', '~> 1.0.0.pre2'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

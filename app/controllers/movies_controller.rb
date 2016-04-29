@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    binding.pry
   end
 
   # GET /movies/new
@@ -80,6 +81,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:name, tag_ids: [])
+      params.require(:movie).permit(:name, :photo, :photo_cache, :remove_photo, tag_ids: [])
     end
 end

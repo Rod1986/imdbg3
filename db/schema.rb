@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419235256) do
+ActiveRecord::Schema.define(version: 20160426222647) do
 
   create_table "movie_tags", force: :cascade do |t|
     t.integer  "movie_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160419235256) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "photo"
   end
 
   add_index "movies", ["user_id"], name: "index_movies_on_user_id"
@@ -55,6 +56,9 @@ ActiveRecord::Schema.define(version: 20160419235256) do
     t.string   "lastname"
     t.string   "username"
     t.integer  "role",                   default: 2,  null: false
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
